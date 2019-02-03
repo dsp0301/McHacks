@@ -13,11 +13,13 @@ app.get('/', function(req, res){
 app.get('/profile', function(req, res){
 	res.render('profile', {qs: req.query});
 });
-
+var test;
 app.post('/profile', urlencodedParser, function(req, res){
-	console.log(req.body);
+	test = toString(req.body.address);
+  console.log(test);
 	res.render('profile', {data: req.body});
 });
 
+console.log(test);
 
 app.listen(3000);
