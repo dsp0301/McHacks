@@ -19,6 +19,18 @@ app.get('/trashboard', function(req, res){
 	res.render('trashboard', {qs: req.query});
 });
 
+app.post('/trashboard', urlencodedParser, function(req, res){
+	let mysql  = require('mysql');
+	let config = require('./config.js');
+	let connection = mysql.createConnection(config);
+	let sql2 = `INSERT INTO post(email, title, message)
+	VALUES('` + req.body.email + `', '` + req.body.title + `', '` + req.body.message + `')`;
+	connection.query(sql2);
+	console.log(sql2);
+	connection.end();
+  res.render('trashboard', {data: req.body});
+});
+
 app.get('/about', function(req, res){
 	res.render('about', {qs: req.query});
 });
@@ -27,35 +39,15 @@ app.post('/home', urlencodedParser, function(req, res){
 
   console.log(req.body);
 
-  let config = {
-    host    : 'localhost',
-    user    : 'root',
-    password: '',
-    database: 'trashTalk'
-  };
-
-  module.exports = config;
-
-  let mysql = require('mysql');
-
-  let connection = mysql.createConnection(config);
-
-  // update statment
-  let sql = `INSERT INTO user1(email, name, company, phone, address) VALUES (` + `"` +  req.body.email+ `", ` + `"` + req.body.name + `", "` + req.body.companyName + `", ` + req.body.contactNumber +`, "` + req.body.address + `")`;
-
-  //let data = ['ehrgghjghjghjghjghjghghgjghjwjkrhewjk', 1];
-
-  // execute the UPDATE statement
-  connection.query(sql, (error, results, fields) => {
-    if (error){
-      return console.error(error.message);
-    }
-    console.log('Rows affected:', results.affectedRows);
-  });
-
-  connection.end();
-
-
+	let mysql  = require('mysql');
+	let config = require('./config.js');
+	let connection = mysql.createConnection(config);
+	let sql = `INSERT INTO user1(email, name, company, phone,address)
+	VALUES('` + req.body.email + `', '` + req.body.name + `', '` + req.body.companyName + `',
+	 '` + req.body.contactNumber + `','` + req.body.address + `')`;
+	connection.query(sql);
+	console.log(sql);
+	connection.end();
   res.render('trashboard', {data: req.body});
 
 });
