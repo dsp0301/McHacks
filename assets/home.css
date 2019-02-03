@@ -1,0 +1,77 @@
+
+#main-content{
+	width: 100vw;
+	height: 65vh;
+}
+
+#cover-photo{
+	width: 100vw;
+	height: 28vh;
+	background-image: url("img/cover-photo.jpeg");
+	background-size: cover;
+}
+
+#home-navbar{
+	height: 7vh;
+}
+
+#navbarSupportedContent{
+	float: left;
+}
+
+.main-content-image{
+	height:20vh;
+	width: auto;
+}
+
+#farmer-container{
+	padding-left: 3%;
+	padding-top: 10%;
+}
+
+#charity-container{
+	padding-left: 8%;
+	padding-top: 10%;
+}
+
+#consumer-container{
+	padding-left: 8%;
+	padding-top: 10%;
+}
+
+.main-item{
+	display: inline-block;
+}
+
+#arrow-container-1{
+	padding-left: 8%;
+	padding-top: 10%;
+}
+
+#arrow-container-2{
+	padding-left: 8%;
+	padding-top: 10%;
+}
+
+.main-content-image-arrow{
+	height:10vh;
+	width: auto;
+}
+
+.sign-up-button{
+	display: inline-block;
+}
+
+#buttons{
+	padding-top: 5%;
+}
+
+#button-left{
+	padding-left: 1%;
+}
+#button-middle{
+	padding-left: 17.5%;
+}
+#button-right{
+	padding-left:18%;
+}
